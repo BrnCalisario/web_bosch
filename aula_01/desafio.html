@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function onReady() {
+            times = [
+                {
+                    nome: "Atlético Miner",
+                    escudo: "https://ssl.gstatic.com/onebox/media/sports/logos/q9fhEsgpuyRq58OgmSndcQ_48x48.png",
+                    classificacao: 1,
+                    pontuacao: 84
+                },
+                {
+                    nome: "Flamengo",
+                    escudo: "https://ssl.gstatic.com/onebox/media/sports/logos/orE554NToSkH6nuwofe7Yg_48x48.png",
+                    classificacao: 2,
+                    pontuacao: 71
+                },
+                {
+                    nome: "Palmeiras",
+                    escudo: "https://ssl.gstatic.com/onebox/media/sports/logos/7spurne-xDt2p6C0imYYNA_48x48.png",
+                    classificacao: 3,
+                    pontuacao: 66
+                },
+                {
+                    nome: "Fortaleza",
+                    escudo: "https://ssl.gstatic.com/onebox/media/sports/logos/me10ephzRxdj45zVq1Risg_48x48.png",
+                    classificacao: 4,
+                    pontuacao: 58
+                },
+                {
+                    nome: "Corinthias",
+                    escudo: "https://ssl.gstatic.com/onebox/media/sports/logos/tCMSqgXVHROpdCpQhzTo1g_48x48.png",
+                    classificacao: 5,
+                    pontuacao: 57
+                },
+                {
+                    nome: "Bragantino",
+                    escudo: "https://ssl.gstatic.com/onebox/media/sports/logos/lMyw2zn1Z4cdkaxKJWnsQw_48x48.png",
+                    classificacao: 6,
+                    pontuacao: 56
+                },
+                
+                {
+                    nome: "Cuiabá",
+                    escudo: "https://ssl.gstatic.com/onebox/media/sports/logos/j6U8Rgt_6yyf0Egs9nREXw_48x48.png",
+                    classificacao: 15,
+                    pontuacao: 47
+                },
+                {
+                    nome: "Juventude",
+                    escudo: "https://ssl.gstatic.com/onebox/media/sports/logos/JrXw-m4Dov0gE2Sh6XJQMQ_48x48.png",
+                    classificacao: 16,
+                    pontuacao: 46
+                },          
+                {
+                    nome: "Grêmio",
+                    escudo: "https://ssl.gstatic.com/onebox/media/sports/logos/Ku-73v_TW9kpex-IEGb0ZA_48x48.png",
+                    classificacao: 17,
+                    pontuacao: 43
+                },
+                {
+                    nome: "Bahia",
+                    escudo: "https://ssl.gstatic.com/onebox/media/sports/logos/nIdbR6qIUDyZUBO9vojSPw_48x48.png",
+                    classificacao: 18,
+                    pontuacao: 43
+                },            
+                {
+                    nome: "Sport Recife",
+                    escudo: "https://ssl.gstatic.com/onebox/media/sports/logos/u9Ydy0qt6JJjWhTaI6r10A_48x48.png",
+                    classificacao: 19,
+                    pontuacao: 38
+                },               
+                {
+                    nome: "Chapecoense",
+                    escudo: "https://ssl.gstatic.com/onebox/media/sports/logos/cZ4ga5Fdqe3Pd-dEcpjUmg_48x48.png",
+                    classificacao: 20,
+                    pontuacao: 15
+                },
+            ]
+
+
+            var tableBody = document.getElementById('tableBody')
+            console.log(tableBody)
+
+            while(tableBody.firstChild)
+                tableBody.removeChild(tableBody.firstChild)
+
+            for (var time of times) {
+                var row = document.createElement('tr')
+
+                var nome = document.createElement('td')
+                nome.innerHTML = time.nome
+
+                var escudo = document.createElement('td')
+                var escudoImg = document.createElement('img')
+                escudoImg.src = time.escudo
+                escudo.appendChild(escudoImg)
+
+
+                var classificacao = document.createElement('td')
+                classificacao.innerHTML = time.classificacao
+
+                var pontuacao = document.createElement('td')
+                pontuacao.innerHTML = time.pontuacao
+
+
+                row.appendChild(nome)
+                row.appendChild(escudo)
+                row.appendChild(classificacao)
+                row.appendChild(pontuacao)
+
+                tableBody.appendChild(row)
+            }
+        }
+
+
+
+
+    </script>
+
+</head>
+
+<body onload="onReady()">
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Time</td>
+                <td>Escudo</td>
+                <td>Classificação</td>
+                <td>Pontuação</td>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+
+        </tbody>
+    </table>
+</body>
+
+</html>
