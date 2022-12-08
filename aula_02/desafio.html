@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        Crie uma página de venda de produtos (Objetos, comidas, eletrônicos).
+    Com "details" crie uma aba para cada item a venda.
+    Cada aba deverá possuir nome, descrição do produto, vídeos de uso e endereço para se
+    encontrar com o vendedor.
+    No final deverá possuir um "details" para inserção de informações do cliente (Nome,
+    telefone, e-mail, etc). -->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+        body {
+            background-color: #233D4D;
+            font-family: sans-serif;
+            text-align: center;
+            color: white;
+        }
+
+        header {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            color: #A1C181;
+        }
+
+        header h1:hover {
+            font-size: 4.2rem;
+        }
+
+        header h1 {
+            font-family: 'Zen Dots', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            transition-duration: 0.4s;
+        }
+
+        h2 {
+            font-family: 'Zen Dots', sans-serif;
+            color: white;
+        }
+
+        p {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        header p {
+            font-size: 2rem;
+            margin-top: 0;
+        }
+
+        #wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+        }
+        
+        #wrapper div {
+            margin: 10px;
+            display: inline-block;
+            height: 500px;
+            width: 500px;
+            background-color: #324C5D;
+            border-radius: 2%;
+        }
+
+        #wrapper img {
+            width: 20rem;
+            transition-duration: 0.4s;
+        }
+
+        #wrapper img:hover {
+            width: 21rem;
+        }
+
+        details summary {
+            font-size: 2rem;
+            text-align: start;
+            margin: 2rem 0 0 6rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+
+    </style>
+
+    <header>
+        <h1>VIDSHOP</h1>
+        <p>Placas de video</p>
+    </header>
+
+    <details>
+        <summary>Catálogo</summary>
+        <section id="wrapper">
+            <div>
+                <h2>GTX 1660 Super</h2>
+                <img src="img/1660.png">
+                <p>Placa de video maneira</p>
+                <p>R$ 1900,00</p>
+            </div>
+            <div>
+                <h2>GTX 1660 Super</h2>
+                <img src="img/1660.png">
+                <p>Placa de video maneira</p>
+                <p>R$ 1900,00</p>
+            </div>
+            <div>
+                <h2>GTX 1660 Super</h2>
+                <img src="img/1660.png">
+                <p>Placa de video maneira</p>
+                <p>R$ 1900,00</p>
+            </div>
+            
+        </section>
+    </details>
+    
+    <details>
+        <summary>Contato</summary>
+        <section>
+            
+        </section>
+    </details>
+
+
+    <div class="container"></div>
+    <!-- <form>
+        <label>Nome Completo</label>
+        <input type="text">
+        <br>
+        <label>Telefone</label>
+        <input type="tel">
+        <br>
+        <label>Email</label>
+        <input type="email">
+        <br>
+        
+    </form> -->
+
+</body>
+
+</html>
