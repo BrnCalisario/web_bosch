@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
+
+
+body {
+    background-color: black;
+    color: white;
+    padding: 0;
+    margin: 0;
+    
+    text-align: center;
+}
+
+header {
+    position: fixed;
+    left: 25vw;
+
+    display: flex;
+    justify-content: space-between;
+    width: 50vw;
+    
+    margin: 2vh auto;
+    padding: 1.5rem;
+    
+    border-radius: 50px;
+    
+    background-color: white;
+    box-shadow: 3px 3px 5px rgb(26, 26, 26);
+
+    transition: visibility 0.5s, opacity 0.5s linear;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+
+    padding: 0 20px;
+
+    transition: 0.3s;
+}
+
+header a:hover {
+    font-size: 1.75rem;
+    color: #62B6B7;
+}
+
+#home {
+    background-color: #439A97;
+    height: 100vh;
+}
+
+#display-name {
+    display: inline-block;
+    margin: 30vh 0;
+
+    font-size: 3rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#display-name h1, p {
+    margin: 0;
+}
+
+#sobre-mim {
+    background-color: #CBEDD5;
+    height: 100vh;
+}
+
+
+#contato {
+    background-color: #62B6B7;
+    height: 100vh;
+}
+
+footer {
+    background-color: black;
+    height: 20vh;
+}
+
+i {
+    color: white;
+    font-size: 5rem;
+}
