@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 // string value = "20 - 36 - (1.4 * 3)";
@@ -123,3 +123,10 @@ public enum Token {
 // exp OPSUM exp
 // lowExp
 // exp
+
+public class ParseTree 
+{
+    Token
+    Val
+    listaFilhos
+}
