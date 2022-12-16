@@ -19,11 +19,12 @@
     <title>Portfólio Bruno Calisario</title>
 </head>
 
-<body>
+<body onload="comeco()">
     <header>
-        <a id="home-btn" href="#home">Home</a>
-        <a id="about-btn" href="#sobre-mim">Sobre Mim</a>
-        <a id="contato-btn" href="#contato">Contato</a>
+        <a class="btn" id="home-btn" href="#home">Home</a>
+        <a class="btn" id="about-btn" href="#sobre-mim">Sobre Mim</a>
+        <a class="btn" id="projetos-btn" href="#projetos">Projetos</a>
+        <a class="btn" id="contato-btn" href="#contato">Contato</a>
     </header>
 
     <article id="home">
@@ -33,9 +34,51 @@
         </div>
     </article>
 
-    <article id="sobre-mim">
-        <!-- <article id="sobre-mim">
-        </article> -->
+    <article  id="sobre-mim">
+        <div class="about-content">
+            <h2>Sobre Mim</h2>
+            <p>
+                Me chamo Bruno Oliveira Calisario, nas horas vagas 
+                gosto de ouvir música e tocar instrumentos musicais, 
+                além de jogar video-games.<br>
+                Atualmente estudo programação
+                durante os 3 períodos do meu dia (Manhã e Tarde no trabalho 
+                e de Noite na faculdade), e nessa jornada estou tendo bastante 
+                contato com <b>C#, Python, MSSQL,HTML e CSS</b>. <br>
+                Minha preferência no momento é de atuar no Backend, apesar de estar
+                estudando o Full Stack.        
+            </p>
+        </div>
+    </article>
+    
+    <article id="projetos">
+        <h1>Alguns dos meus Projetos</h1>
+        <div class="cards">
+            <div class="card">
+                <h3>PlantsVsZombies.py</h3>
+                <hr>
+                <img src="https://lolitajoias.com.br/wp-content/uploads/2020/09/no-image.jpg">
+                <hr>
+                <p>
+                    Projeto que teve como objetivo recriar as mecânicas básicas do 
+                    famoso jogo Plants vs Zombies utilizando a linguagem Python junto
+                    com a bibiloteca para desenvolvimento de jogos Pygame.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Locadora API</h3>
+                <hr>
+                <img src="https://lolitajoias.com.br/wp-content/uploads/2020/09/no-image.jpg">
+                <hr>
+            </div>
+            <div class="card">
+                <h3>Pokedex do Tédio</h3>
+                <hr>
+                <img src="https://lolitajoias.com.br/wp-content/uploads/2020/09/no-image.jpg">
+                <hr>
+            </div>
+        </div>
+        
     </article>
 
     <article id="contato">
@@ -44,7 +87,7 @@
         </article> -->
     </article>
 
-    <footer>
+    <footer id="footer">
         <div id="icons">
             <i class="fab fa-github"></i>
             <i class="fab fa-linkedin"></i>

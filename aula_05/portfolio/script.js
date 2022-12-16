@@ -1,55 +1,49 @@
+let articles = document.getElementsByTagName("article")
+let anchors = document.getElementsByClassName("btn")
 
-let section = [$("#home"), $("#sobre-mim"), $("contato")]
+function activeAnchor(a) {
+    for(let i = 0; i < anchors.length; i++) {
+        anchors[i].style.color = "black"
+    }
+    a.style.color = "#62B6B7"
+}
 
-
-$(window).scroll(function() {
-    var homeBtn = $("#home-btn")
-    var aboutBtn = $("#about-btn")
-    var contatoBtn = $("#contato-btn")
-    
-    var actualPos = $(window).scrollTop()
-
-    homeBtn.css("color", "black")
-    aboutBtn.css("color", "black")
-    contatoBtn.css("color", "black")
-
-    console.log(actualPos)
-
-    if (actualPos < 20) {
-        homeBtn.css("color", "#62B6B7")
-        $("header").css("visibility", "visible")
-        $("header").css("opacity" , "1")
-        return
+function comeco() {
+    for (let i = 0; i < anchors.length; i++) {
+        anchors[i].onclick = () => {
+            activeAnchor(anchors[i])
+        }
     }
 
-    if (actualPos >= $("#home").position().top  && actualPos < $("#sobre-mim").position().top) {
-        homeBtn.css("color", "#62B6B7")
-        $("header").css("visibility", "hidden")
-        $("header").css("opacity" , "0")
-        return
+    window.onscroll = () => {
+        for(let i = 0; i < articles.length; i++) {
+            let top = window.scrollY
+            let offset = articles[i].offsetTop
+            let height = articles[i].offsetHeight
+            let id = articles[i].getAttribute('id')
+
+            if(top >= offset && top < offset + height) {
+                const target = document.querySelector(`[href='#${id}']`)
+                activeAnchor(target)
+            }
+        }
+
+        if($(window).scrollTop() > 100 && $(window).scrollTop() < 800) {
+            $("header").css("visibility", "hidden")
+            $("header").css("opacity" , "0")
+        } else {
+            $("header").css("visibility", "visible")
+            $("header").css("opacity" , "1")
+        }
     }
-
-
-    if (actualPos >= $("#sobre-mim").position().top && actualPos < $("#contato").position().top) {
-        aboutBtn.css("color", "#62B6B7")
-        console.log(actualPos  + ' ' + ($("#contato").position().top))
-    } else if (actualPos >= $("#contato").position().top) {
-        contatoBtn.css("color", "#62B6B7")
-    }    
-
-    $("header").css("visibility", "visible")
-    $("header").css("opacity" , "1")
-    
-
-    
-    // console.log($("#sobre-mim").position().top)
-})
+}
 
 
 $(document).on('click', 'a[href^="#"]', function (event) {
     event.preventDefault();
-
     $('html, body').animate({
         scrollTop: $($.attr(this, 'href')).offset().top
     }, 500);
+
+    
 });
