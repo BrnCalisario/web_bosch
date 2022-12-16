@@ -1,0 +1,15 @@
+C:\Users\disrct\Desktop\winFormsExample\bin\Debug\net6.0\winFormsExample.exe
+C:\Users\disrct\Desktop\winFormsExample\bin\Debug\net6.0\winFormsExample.deps.json
+C:\Users\disrct\Desktop\winFormsExample\bin\Debug\net6.0\winFormsExample.runtimeconfig.json
+C:\Users\disrct\Desktop\winFormsExample\bin\Debug\net6.0\winFormsExample.dll
+C:\Users\disrct\Desktop\winFormsExample\bin\Debug\net6.0\winFormsExample.pdb
+C:\Users\disrct\Desktop\winFormsExample\obj\Debug\net6.0\winFormsExample.csproj.AssemblyReference.cache
+C:\Users\disrct\Desktop\winFormsExample\obj\Debug\net6.0\winFormsExample.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\disrct\Desktop\winFormsExample\obj\Debug\net6.0\winFormsExample.AssemblyInfoInputs.cache
+C:\Users\disrct\Desktop\winFormsExample\obj\Debug\net6.0\winFormsExample.AssemblyInfo.cs
+C:\Users\disrct\Desktop\winFormsExample\obj\Debug\net6.0\winFormsExample.csproj.CoreCompileInputs.cache
+C:\Users\disrct\Desktop\winFormsExample\obj\Debug\net6.0\winFormsExample.dll
+C:\Users\disrct\Desktop\winFormsExample\obj\Debug\net6.0\refint\winFormsExample.dll
+C:\Users\disrct\Desktop\winFormsExample\obj\Debug\net6.0\winFormsExample.pdb
+C:\Users\disrct\Desktop\winFormsExample\obj\Debug\net6.0\winFormsExample.genruntimeconfig.cache
+C:\Users\disrct\Desktop\winFormsExample\obj\Debug\net6.0\ref\winFormsExample.dll
