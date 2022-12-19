@@ -18,61 +18,72 @@ var lowExpCondition =
         new List<Token> { Token.exp, Token.OPSUM, Token.exp },
         new List<Token> { Token.exp, Token.OPSUB, Token.exp }};
 
-
+// Regex rgx = new Regex(@"[A-Z]+\s?[A-Z]+\s?[A-Z]+");
 // string value = "20 - 36 - (1.4 * 3)";
-string value = "4 * (1 + 2)";
+
+string value = "50 - (50 * 2) / 5 * (35 - 4)";
 var val = SplitExpression(value);
 
-var tokens = TokenizeExp(val);
+// val.ForEach(p => Console.Write(p + " "));
+
+var tokens = Tokenizer(val);
+
+tokens.ForEach(p => Console.Write(p.Token + " "));
+
 
 Decompose(tokens);
- 
+Console.WriteLine(tokens[0].Calculate());
 
-Regex rgx = new Regex(@"[A-Z]+\s?[A-Z]+\s?[A-Z]+");
 
-void Decompose(List<Token> tokens)
+void Decompose(List<ParseTree> tokens)
 {
-    while (tokens.Count > 1)
+    while (tokens.Count > 2)
     {
-        Console.WriteLine("\n\n");
-        foreach (var t in tokens)
-            Console.Write(t + " ");
+        // Console.WriteLine("\n\n");
+        // foreach (var t in tokens)
+        //     Console.Write(t.Token + " ");
 
         for (int i = 0; i < tokens.Count - 2; i++)
         {
-            var possibleMatch = new List<Token> { tokens[i], tokens[i + 1], tokens[i + 2] };
+            var possibleMatch = new List<Token> { tokens[i].Token, tokens[i + 1].Token, tokens[i + 2].Token};
 
             if (highExpCondition.SequenceEqual(possibleMatch))
             {
-                tokens[i] = Token.highExp;
-                tokens.RemoveAt(i + 1);
-                tokens.RemoveAt(i + 1);
-            }
+                changeList(tokens, i, Token.highExp);
+            } 
             else if (medExpCondition.Any(coll => coll.SequenceEqual(possibleMatch)))
             {
-                tokens[i] = Token.medExp;
-                tokens.RemoveAt(i + 1);
-                tokens.RemoveAt(i + 1);
-            }
-            else if (lowExpCondition.Any(coll => coll.SequenceEqual(possibleMatch)))
+                changeList(tokens, i, Token.medExp);
+            } else if (lowExpCondition.Any(coll => coll.SequenceEqual(possibleMatch)))
             {
-                tokens[i] = Token.lowExp;
-                tokens.RemoveAt(i + 1);
-                tokens.RemoveAt(i + 1);
+                changeList(tokens, i, Token.lowExp);
             }
         }
 
         for (int i = 0; i < tokens.Count; i++)
-            if (expCondition.Contains(tokens[i]))
-                tokens[i] = Token.exp;
-
-        Console.WriteLine();
-        foreach (var t in tokens)
-            Console.Write(t + " ");
+            if (expCondition.Contains(tokens[i].Token))
+            {
+                var pt = new ParseTree();
+                pt.Token = Token.exp;
+                pt.NodeList.Add(tokens[i]);
+                tokens[i] = pt;
+            }
 
     }
 }
 
+void changeList(List<ParseTree> tokens, int i, Token TOKEN){
+    var pt = new ParseTree();
+    pt.Token = TOKEN;
+
+    pt.NodeList.Add(tokens[i]);
+    pt.NodeList.Add(tokens[i + 1]);
+    pt.NodeList.Add(tokens[i + 2]);
+
+    tokens[i] = pt;
+    tokens.RemoveAt(i + 1);
+    tokens.RemoveAt(i + 1);
+}
 
 
 List<object> SplitExpression(string expr)
@@ -86,7 +97,7 @@ List<object> SplitExpression(string expr)
     foreach (var c in expr)
     {
         if (delimiters.Contains(c))
-        {
+        { 
             if (buffer.Length > 0)
             {
                 ret.Add(float.Parse(buffer));
@@ -99,95 +110,47 @@ List<object> SplitExpression(string expr)
             buffer += c;
         }
     }
+    if (buffer.Length > 0)
+        ret.Add(float.Parse(buffer));
+
     return ret;
 }
 
-List<Token> TokenizeExp(List<object> list)
+List<ParseTree> Tokenizer(List<object> list)
 {
-    List<Token> tokenList = new List<Token>();
+    List<ParseTree> tokenList = new List<ParseTree>();
 
-    foreach (var obj in list)
+    foreach(var obj in list)
     {
-        switch (obj)
+        ParseTree tk = new ParseTree();
+        tk.Value = obj; 
+        switch(obj) 
         {
             case "+":
-                tokenList.Add(Token.OPSUM);
+                tk.Token = Token.OPSUM;
                 break;
             case "-":
-                tokenList.Add(Token.OPSUB);
+                tk.Token = Token.OPSUB;
                 break;
             case "*":
-                tokenList.Add(Token.OPMUL);
+                tk.Token = Token.OPMUL;
                 break;
             case "/":
-                tokenList.Add(Token.OPDIV);
+                tk.Token = Token.OPDIV;
                 break;
             case "(":
-                tokenList.Add(Token.OPENPARENTHESIS);
+                tk.Token = Token.OPENPARENTHESIS;
                 break;
             case ")":
-                tokenList.Add(Token.CLOSEPARENTHESIS);
+                tk.Token = Token.CLOSEPARENTHESIS;
                 break;
             default:
-                tokenList.Add(Token.NUM);
+                tk.Token =  Token.NUM;
                 break;
         }
+        tokenList.Add(tk);
     }
-
     return tokenList;
 }
 
 
-public enum Token
-{
-    NUM,
-    OPSUM,
-    OPSUB,
-    OPMUL,
-    OPDIV,
-    OPENPARENTHESIS,
-    CLOSEPARENTHESIS,
-
-    exp,
-    lowExp,
-    medExp,
-    highExp,
-}
-
-// NUM
-// OPSUM
-// OPSUB
-// OPMUL
-// OPDIV
-// OPENPARENTHESIS
-// CLOSEPARENTHESIS
-
-// highExp = OPENPARENTHESIS exp CLOSEPARENTHESIS
-// medExp = exp OPMUL exp | exp OPDIV exp
-// lowExp = exp OPSUM exp | exp OPSUB exp
-// exp = highExp | medExp | lowExp | NUM
-
-// 4 * (1 + 2)
-// NUM OPMUL OPENPARENTHESIS NUM OPSUM NUM CLOSEPARENTHESIS
-// exp OPMUL OPENPARENTHESIS exp OPSUM exp CLOSEPARENTHESIS
-// exp OPMUL OPENPARENTHESIS lowExp CLOSEPARENTHESIS
-// exp OPMUL OPENPARENTHESIS exp CLOSEPARENTHESIS
-// exp OPMUL highExp
-// exp OPMUL exp
-// medExp
-// exp
-
-// 1 + 2 * 3
-// NUM OPSUM NUM OPMUL NUM
-// exp OPSUM exp OPMUL exp
-// exp OPSUM medExp
-// exp OPSUM exp
-// lowExp
-// exp
-
-// public class ParseTree 
-// {
-//     Token
-//     Val
-//     listaFilhos
-// }
