@@ -13,6 +13,8 @@ body {
 }
 
 header {
+    z-index: 1;
+
     position: fixed;
     left: 50%;
 
@@ -75,18 +77,44 @@ header a:hover {
 
 #sobre-mim h2 {
     margin-top: 0;
-}
+    color: #439A97;
 
+}
 .about-content {
-    margin: 0 0 0 50vw;
-    padding: 25vh 0;
-    width: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20vh 0;
+    gap: 1.5rem;
+    /* margin: 0 0 0 25vw;
+    padding: 25vh 0; */
+    width: 50vw;
     text-align: left;
 }
 
+.about-content i {
+    font-size: 25rem;
+    color: #439A97;
+}
+
+.about-text i {
+    padding: 40px 0;
+    font-size: 4rem;
+}
+
+.tecnologias {
+    padding: 25px 0;
+}
+
 #projetos {
-    background-color: black;
+    background-color: #62B6B7;
     height: 100vh;
+}
+
+#projetos h1 {
+    font-weight: 800;
+    padding-top: 3rem;
 }
 
 .cards {
@@ -98,6 +126,34 @@ header a:hover {
 }
 
 .card {
+    width: 23vw;
+    border-radius: 25px;
+    --bs-card-border-width: 0;
+}
+
+.card i {
+    color: black;
+    font-size: 2rem;
+}
+
+.card img {
+    padding: 0;
+    margin: 0;
+    height: 300px
+}
+
+.card p {
+    padding: 0 2rem;
+    text-align: justify;
+}
+
+.link-wrap {
+    display: flex;
+    justify-content: right;
+    padding-right: 2rem;
+}
+
+/* .card {
     background-color: white;
     width: 20vw;
     height: 60vh;
@@ -115,27 +171,29 @@ header a:hover {
 }
 
 .card img {
-    width: 30vh;
+    max-width: 20vw;
+    max-height: 39vh;
+    border-radius: 25px 25px 0 0;
 }
 
 .card p {
     width: 80%;
     margin: 0 auto;
     text-align: justify;
-}
+} */
 
 
-#contato {
+/* #contato {
     background-color: #62B6B7;
     height: 100vh;
-}
+} */
 
 footer {
     background-color: black;
     height: 20vh;
 }
 
-i {
+#contato i {
     margin: 50px 25px ;
     color: white;
     font-size: 5rem;
@@ -144,6 +202,6 @@ i {
     transition: 0.5s;
 }
 
-i:hover {
+footer i:hover {
     font-size: 5.5rem;
 }

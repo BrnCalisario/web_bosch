@@ -6,10 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="style.css">
 
     <script src="https://code.jquery.com/jquery-3.6.2.min.js"
         integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
@@ -34,65 +48,123 @@
         </div>
     </article>
 
-    <article  id="sobre-mim">
+    <article id="sobre-mim">
         <div class="about-content">
-            <h2>Sobre Mim</h2>
-            <p>
-                Me chamo Bruno Oliveira Calisario, nas horas vagas 
-                gosto de ouvir música e tocar instrumentos musicais, 
-                além de jogar video-games.<br>
-                Atualmente estudo programação
-                durante os 3 períodos do meu dia (Manhã e Tarde no trabalho 
-                e de Noite na faculdade), e nessa jornada estou tendo bastante 
-                contato com <b>C#, Python, MSSQL,HTML e CSS</b>. <br>
-                Minha preferência no momento é de atuar no Backend, apesar de estar
-                estudando o Full Stack.        
-            </p>
+
+            <div>
+                <i class="fas fa-user-circle"></i>
+            </div>
+
+            <div class="about-text">
+                <h2>Sobre Mim</h2>
+                <p>
+                    Me chamo Bruno Oliveira Calisario, nas horas vagas
+                    gosto de ouvir música e tocar instrumentos musicais,
+                    além de jogar video-games.<br>
+                    Estou cursando Análise e Desenvolvimento de Sistemas
+                    na Universidade Positivo
+                    e atualmente estudo programação
+                    durante os 3 períodos do meu dia (Manhã e Tarde no trabalho
+                    e de Noite na faculdade)<br>
+                    Minha preferência no momento é de atuar no Backend, apesar de estar
+                    estudando o Full Stack.
+                </p>
+                <div class="tecnologias">
+                    <i class="devicon-csharp-line"></i>
+                    <i class="devicon-python-plain"></i>
+                    <i class="devicon-microsoftsqlserver-plain-wordmark"></i>
+                    <i class="devicon-html5-plain-wordmark"></i>
+                    <i class="devicon-css3-plain-wordmark"></i>
+                </div>
+            </div>
+
+            <h2>
         </div>
     </article>
-    
+
     <article id="projetos">
         <h1>Alguns dos meus Projetos</h1>
         <div class="cards">
+
             <div class="card">
-                <h3>PlantsVsZombies.py</h3>
-                <hr>
-                <img src="https://lolitajoias.com.br/wp-content/uploads/2020/09/no-image.jpg">
-                <hr>
-                <p>
-                    Projeto que teve como objetivo recriar as mecânicas básicas do 
-                    famoso jogo Plants vs Zombies utilizando a linguagem Python junto
-                    com a bibiloteca para desenvolvimento de jogos Pygame.
-                </p>
+                <div class="card-header">
+                    <h3>PlantsVsZombies.py</h3>
+                </div>
+                <img src="img/pvz_preview.jpg">
+                <div class="card-body">
+                    <p>
+                        Projeto que teve como objetivo recriar as mecânicas básicas do
+                        famoso jogo Plants vs Zombies utilizando a linguagem Python junto
+                        com a bibiloteca para desenvolvimento de jogos Pygame.
+                    </p>
+
+                    <div class="link-wrap">
+                        <a target="_blank" href="https://github.com/BrnCalisario/plants-vs-zombies.py">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Locadora API</h3>
+                </div>
+                <img
+                    src="data:image/png;base64,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">
+                <div class="card-body">
+                    <p>
+                        Projeto realizado no quarto semestre da faculdade,
+                        que tinha como requisito criar uma API com endpoints para
+                        cadastrar filmes, junto com uma integração com o backend que tratava os
+                        dados para manda-los para o banco de dados.
+                    </p>
+
+                    <div class="link-wrap">
+                        <a target="_blank" href="https://github.com/BrnCalisario/trabalho-locadora-api">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="card">
-                <h3>Locadora API</h3>
-                <hr>
-                <img src="https://lolitajoias.com.br/wp-content/uploads/2020/09/no-image.jpg">
-                <hr>
-            </div>
-            <div class="card">
-                <h3>Pokedex do Tédio</h3>
-                <hr>
-                <img src="https://lolitajoias.com.br/wp-content/uploads/2020/09/no-image.jpg">
-                <hr>
+                <div class="card-header">
+                    <h3>Pokedex do Tédio</h3>
+                </div>
+                <img src="img/pokedex_preview.jpg">
+                <div class="card-body">
+                    <p>
+                        Pokedéx utilizando a PokeAPI para popular o site, projeto feito utilizando
+                        o Node e o pacote Express para criar rotas para cada pokemon ter
+                        sua página reservada dinânicamente
+                    </p>
+
+                    <div class="link-wrap">
+                        <a target="_blank" href="https://github.com/BrnCalisario/pokedex-tedio">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-        
     </article>
+
+
+    <!-- <article id="contato">
+         <article id="contato">
+            
+        </article> 
+    </article> -->
 
     <article id="contato">
-        <!-- <article id="contato">
-            
-        </article> -->
-    </article>
-
-    <footer id="footer">
         <div id="icons">
             <i class="fab fa-github"></i>
             <i class="fab fa-linkedin"></i>
         </div>
-    </footer>
+        <p>Criado por BrnCalisario</p>
+    </article>
 </body>
 
 </html>
