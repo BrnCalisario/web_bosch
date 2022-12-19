@@ -1,5 +1,23 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Linq;
+
+var expCondition =
+    new List<Token> { Token.highExp, Token.medExp, Token.lowExp, Token.NUM };
+
+var highExpCondition =
+    new List<Token> { Token.OPENPARENTHESIS, Token.exp, Token.CLOSEPARENTHESIS };
+
+var medExpCondition =
+    new List<List<Token>> {
+        new List<Token> { Token.exp, Token.OPMUL, Token.exp },
+        new List<Token> { Token.exp, Token.OPDIV, Token.exp }};
+
+var lowExpCondition =
+    new List<List<Token>> {
+        new List<Token> { Token.exp, Token.OPSUM, Token.exp },
+        new List<Token> { Token.exp, Token.OPSUB, Token.exp }};
+
 
 // string value = "20 - 36 - (1.4 * 3)";
 string value = "4 * (1 + 2)";
@@ -7,18 +25,55 @@ var val = SplitExpression(value);
 
 var tokens = TokenizeExp(val);
 
-foreach(var v in val){
-    Console.WriteLine(v);
-}
-
+Decompose(tokens);
+ 
 
 Regex rgx = new Regex(@"[A-Z]+\s?[A-Z]+\s?[A-Z]+");
 
-while(tokens.Count > 0)
+void Decompose(List<Token> tokens)
 {
-    Console.WriteLine(rgx.Match(string.Join(' ', tokens)).Value);
-    tokens.RemoveAt(0);
+    while (tokens.Count > 1)
+    {
+        Console.WriteLine("\n\n");
+        foreach (var t in tokens)
+            Console.Write(t + " ");
+
+        for (int i = 0; i < tokens.Count - 2; i++)
+        {
+            var possibleMatch = new List<Token> { tokens[i], tokens[i + 1], tokens[i + 2] };
+
+            if (highExpCondition.SequenceEqual(possibleMatch))
+            {
+                tokens[i] = Token.highExp;
+                tokens.RemoveAt(i + 1);
+                tokens.RemoveAt(i + 1);
+            }
+            else if (medExpCondition.Any(coll => coll.SequenceEqual(possibleMatch)))
+            {
+                tokens[i] = Token.medExp;
+                tokens.RemoveAt(i + 1);
+                tokens.RemoveAt(i + 1);
+            }
+            else if (lowExpCondition.Any(coll => coll.SequenceEqual(possibleMatch)))
+            {
+                tokens[i] = Token.lowExp;
+                tokens.RemoveAt(i + 1);
+                tokens.RemoveAt(i + 1);
+            }
+        }
+
+        for (int i = 0; i < tokens.Count; i++)
+            if (expCondition.Contains(tokens[i]))
+                tokens[i] = Token.exp;
+
+        Console.WriteLine();
+        foreach (var t in tokens)
+            Console.Write(t + " ");
+
+    }
 }
+
+
 
 List<object> SplitExpression(string expr)
 {
@@ -51,9 +106,9 @@ List<Token> TokenizeExp(List<object> list)
 {
     List<Token> tokenList = new List<Token>();
 
-    foreach(var obj in list)
+    foreach (var obj in list)
     {
-        switch(obj)
+        switch (obj)
         {
             case "+":
                 tokenList.Add(Token.OPSUM);
@@ -83,7 +138,8 @@ List<Token> TokenizeExp(List<object> list)
 }
 
 
-public enum Token {
+public enum Token
+{
     NUM,
     OPSUM,
     OPSUB,
@@ -91,6 +147,11 @@ public enum Token {
     OPDIV,
     OPENPARENTHESIS,
     CLOSEPARENTHESIS,
+
+    exp,
+    lowExp,
+    medExp,
+    highExp,
 }
 
 // NUM
@@ -124,9 +185,9 @@ public enum Token {
 // lowExp
 // exp
 
-public class ParseTree 
-{
-    Token
-    Val
-    listaFilhos
-}
+// public class ParseTree 
+// {
+//     Token
+//     Val
+//     listaFilhos
+// }

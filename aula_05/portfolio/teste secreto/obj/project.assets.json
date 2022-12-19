@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\winFormsExample\\winFormsExample.csproj",
+      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\web_bosch\\aula_05\\portfolio\\teste secreto\\winFormsExample.csproj",
       "projectName": "winFormsExample",
-      "projectPath": "C:\\Users\\disrct\\Desktop\\winFormsExample\\winFormsExample.csproj",
+      "projectPath": "C:\\Users\\disrct\\Desktop\\web_bosch\\aula_05\\portfolio\\teste secreto\\winFormsExample.csproj",
       "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\disrct\\Desktop\\winFormsExample\\obj\\",
+      "outputPath": "C:\\Users\\disrct\\Desktop\\web_bosch\\aula_05\\portfolio\\teste secreto\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
