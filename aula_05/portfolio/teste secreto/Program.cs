@@ -19,16 +19,16 @@ var lowExpCondition =
         new List<Token> { Token.exp, Token.OPSUB, Token.exp }};
 
 // Regex rgx = new Regex(@"[A-Z]+\s?[A-Z]+\s?[A-Z]+");
-// string value = "20 - 36 - (1.4 * 3)";
+// string value = "50 - (50 * 2) / 5 * (35 - 4)";
 
-string value = "50 - (50 * 2) / 5 * (35 - 4)";
+string value = "75 * 4 - (34 * -3) / (2 * 5)";
 var val = SplitExpression(value);
 
 // val.ForEach(p => Console.Write(p + " "));
 
 var tokens = Tokenizer(val);
 
-tokens.ForEach(p => Console.Write(p.Token + " "));
+// tokens.ForEach(p => Console.Write(p.Token + " "));
 
 
 Decompose(tokens);
@@ -37,28 +37,47 @@ Console.WriteLine(tokens[0].Calculate());
 
 void Decompose(List<ParseTree> tokens)
 {
-    while (tokens.Count > 2)
+    while (tokens.Count > 1)
     {
-        // Console.WriteLine("\n\n");
-        // foreach (var t in tokens)
-        //     Console.Write(t.Token + " ");
-
-        for (int i = 0; i < tokens.Count - 2; i++)
+        Console.WriteLine("\n\n");
+        foreach (var t in tokens)
+            Console.Write(t.Token + " ");
+                    
+        for(int i = 0; i < tokens.Count - 2; i++)
         {
-            var possibleMatch = new List<Token> { tokens[i].Token, tokens[i + 1].Token, tokens[i + 2].Token};
-
-            if (highExpCondition.SequenceEqual(possibleMatch))
-            {
+            if(highExpCondition.SequenceEqual(tokens.Select(t => t.Token).Skip(i).Take(3)))
                 changeList(tokens, i, Token.highExp);
-            } 
-            else if (medExpCondition.Any(coll => coll.SequenceEqual(possibleMatch)))
-            {
-                changeList(tokens, i, Token.medExp);
-            } else if (lowExpCondition.Any(coll => coll.SequenceEqual(possibleMatch)))
-            {
-                changeList(tokens, i, Token.lowExp);
-            }
         }
+
+        for(int i = 0; i < tokens.Count - 2; i++)
+        {
+            if(medExpCondition.Any(c => c.SequenceEqual(tokens.Select(t => t.Token).Skip(i).Take(3))))
+                changeList(tokens, i, Token.medExp);
+        }
+
+        for(int i = 0; i < tokens.Count - 2; i++)
+        {
+            if(lowExpCondition.Any(c => c.SequenceEqual(tokens.Select(t => t.Token).Skip(i).Take(3))))
+                changeList(tokens, i, Token.lowExp);
+        }
+
+
+        // for (int i = 0; i < tokens.Count - 2; i++)
+        // {
+        //     var possibleMatch = new List<Token> { tokens[i].Token, tokens[i + 1].Token, tokens[i + 2].Token};
+
+        //     if (highExpCondition.SequenceEqual(possibleMatch))
+        //     {
+        //         changeList(tokens, i, Token.highExp);
+        //     } 
+        //     else if (medExpCondition.Any(coll => coll.SequenceEqual(possibleMatch)))
+        //     {
+        //         changeList(tokens, i, Token.medExp);
+        //     } else if (lowExpCondition.Any(coll => coll.SequenceEqual(possibleMatch)))
+        //     {
+        //         changeList(tokens, i, Token.lowExp);
+        //     }
+        // }
 
         for (int i = 0; i < tokens.Count; i++)
             if (expCondition.Contains(tokens[i].Token))
