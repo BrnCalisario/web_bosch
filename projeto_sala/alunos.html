@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Aluno</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+
+<body>
+    <header>
+        <a id="title" href="index.html">Controle de Estudantes</a>
+        <nav>
+            <p><b>Cadastrar: </b></p>
+            <a href="alunos.html">Alunos</a>
+            <a href="salas.html">Sala</a>
+        </nav>
+    </header>
+
+
+
+
+    <form class="form-sala">
+        <h2>Cadastrar um novo aluno</h2>
+
+        <input id="flImage" type="file"  name="foto" accept="image/*" style="display: none;">
+        <img id="imgFoto" src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png">
+
+        <label for="input-nome">Nome</label>
+        <input id="input-nome" type="text" name="nome-aluno">
+
+        <label for="input-idade">Idade</label>
+        <input id="input-idade" type="text" name="idade-aluno">
+
+        <label for="input-nome">Sexo</label>
+        <input id="input-nome" type="text" name="sexo-aluno">
+
+        <label for="select-sala">Sala</label>
+
+        <select>
+            <optgroup>
+                <option>TI</option>
+            </optgroup>
+        </select>
+
+        <button class="submit-btn">Cadastrar</button>
+
+
+    </form>
+</body>
+<script src="js/photo.js"></script>
+</html>

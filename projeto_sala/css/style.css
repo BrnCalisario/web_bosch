@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700;800;900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: rgb(253, 253, 253);
+
+    font-family: 'Roboto', sans-serif;
+}
+
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin: 10px 0 5px 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Header */
+
+header {
+    padding: 0 20px;
+
+    background-color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-shadow: 0 0 10px 0 gray;
+}
+
+#title {
+    font-size: 2rem;
+    margin: 1.75rem 0;
+
+    font-weight: 600;
+    color: black;
+}
+
+header 
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Tela Principal */
+
+
+#select-box {
+    margin: 5vh 3vw;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 5px;
+}
+
+#select-box select {
+    width: 8rem;
+    padding: 3px 0;
+    text-align: center;
+    border-radius: 3px;
+}
+
+section {
+    display: flex;
+
+    justify-content: center;
+}
+
+#lista-alunos {
+
+    width: 90vw;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.aluno {
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+    width: 30%;
+    border-radius: 6px;
+    border: 1px solid lightgray;
+}
+
+.aluno img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.aluno p {
+    margin: 0px 0 20px 0;
+}
+
+/* Tela Cadastro de Salas */
+
+
+.form-sala {
+
+    width: 450px;
+    min-height: 380px;
+    background-color: white;
+    margin: 12vh auto 5vh;
+    padding: 0 1rem;
+
+    border-radius: 5px;
+    border: 1px solid lightgray;
+
+}
+
+.form-sala h2 {
+    font-size: 2rem;
+    margin: 15px 0;
+    padding: 15px 0;
+
+    font-weight: 500;
+}
+
+.form-sala input {
+    width: 92%;
+    display: block;
+
+    padding: 1rem 0;
+    margin-bottom: 25px;
+
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+.form-sala label {
+    font-size: 1.2rem;
+    color: rgb(72, 72, 72);
+    display: block;
+}
+
+.form-sala input[type="text"] {
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: rgb(81, 81, 81);
+}
+
+
+.form-sala select {
+    display: block;
+    width: 100%;
+    
+    padding: 1rem;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    color: rgb(81, 81, 81);
+}
+
+.form-sala img {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+/* Buttons */
+
+.submit-btn {
+    /* TODO */
+    padding: 0.75rem;
+
+    background-color: rgb(54, 173, 213);
+    color: white;
+
+    border: 0;
+    border-radius: 5px;
+
+    display: block;
+    margin-left: auto;
+    margin-bottom: 1rem;
+
+    font-weight: 600;
+
+    transition: 0.9s;
+
+    font-family: 'Rubik', sans-serif;
+    text-transform: uppercase;
+}
+
+.submit-btn:hover {
+    background-color: rgb(41, 154, 192);
+}
+
+.submit-btn:active {
+    background-color: rgb(31, 118, 147);
+}
+
+
+.edit-button {
+    padding: 0.75rem;
+    color: white;
+    background-color: gray;
+    border: 0;
+    border-radius: 5px;
+
+    transition: 0.5s;
+    
+    font-family: 'Rubik', sans-serif;
+    text-transform: uppercase;
+}
+
+.edit-button:hover {
+    background-color: rgb(100, 100, 100);
+}
+
+.edit-button:active {
+    background-color: rgb(60, 60, 60);
+}
