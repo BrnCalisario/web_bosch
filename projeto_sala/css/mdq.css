@@ -4,3 +4,19 @@
 - arrumar header bugada para celulares
 
 */
+
+@media only screen and (max-width: 520px) {
+    header {
+        display: block;
+    }
+
+    #lista-alunos {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .aluno {
+
+        width: 90%;
+    }
+}
