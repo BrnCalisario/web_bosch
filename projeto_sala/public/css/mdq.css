@@ -1,0 +1,41 @@
+/* TODO:  
+
+- ajustar lista de alunos para ficar no centro em tamanhos menores
+- arrumar header bugada para celulares
+
+*/
+
+@media only screen and (max-width: 860px) {
+    header {
+        display: block;
+        width: 100%;
+    }
+
+    #lista-alunos {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .aluno {
+        width: 90%;
+    }
+
+    .form-sala {
+        width: 80vw;
+
+    }
+
+    .form-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+}
+
+@media only screen and (max-width: 1290px) {
+    #lista-alunos {
+        justify-content: center;
+    }
+}

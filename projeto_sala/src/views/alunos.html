@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Aluno</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="stylesheet" href="../../public/css/mdq.css">
+    <script src="../../public/js/photo.js"></script>
+</head>
+
+<body>
+    <header>
+        <a id="title" href="index.html">Controle de Estudantes</a>
+        <nav>
+            <p><b>Cadastrar: </b></p>
+            <a href="alunos.html">Alunos</a>
+            <a href="salas.html">Sala</a>
+        </nav>
+    </header>
+
+    <div class="form-wrap">
+
+        <form class="form-sala">
+            <h2>Cadastrar um novo aluno</h2>
+
+            <input id="flImage" type="file" name="foto" accept="image/*" style="display: none;">
+            <img id="imgFoto" src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png">
+
+            <label for="input-nome">Nome</label>
+            <input id="input-nome" type="text" name="nome-aluno">
+
+            <label for="input-idade">Idade</label>
+            <input id="input-idade" type="text" name="idade-aluno">
+
+            <label for="input-nome">Sexo</label>
+            <input id="input-nome" type="text" name="sexo-aluno">
+
+            <label for="select-sala">Sala</label>
+
+            <select>
+                <optgroup>
+                    <option>TI</option>
+                </optgroup>
+            </select>
+
+            <button class="submit-btn">Cadastrar</button>
+
+
+        </form>
+    </div>
+</body>
+
+</html>
